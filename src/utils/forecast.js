@@ -12,11 +12,12 @@ const forecast = (lat, lon, callback) => {
         } else {
             const {currently, daily} = body;
             const {temperature: currentTemp, precipProbability: precipProb} = currently;
-            callback(undefined, {
-                dailySummary:  daily.data[0].summary,
-                currentTemp,
-                precipProb,
-            })
+            // callback(undefined, {
+            //     dailySummary:  daily.data[0].summary,
+            //     currentTemp,
+            //     precipProb,
+            // })
+            callback(undefined, daily.data[0].summary + 'It is currently ' + currentTemp + ' with chance of rain ' + precipProb)
         } 
     })
 }
