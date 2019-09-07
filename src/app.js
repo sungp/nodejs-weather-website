@@ -4,6 +4,7 @@ const hbs = require('hbs');
 const app = express();
 const forecast = require('./utils/forecast')
 const geocode = require('./utils/geocode')
+const port = process.env.PORT || 3000 //Heroku port or 3000 for local
 
 // console.log(__dirname);
 // console.log(path.join(__dirname, '../public'))
@@ -103,7 +104,8 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.');
+//app.listen(3000, () => {
+app.listen(port, () => {
+    console.log('Server is up on port ' + port);
 });
 
